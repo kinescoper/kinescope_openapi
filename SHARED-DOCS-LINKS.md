@@ -9,7 +9,7 @@
 ## 📄 Прямая ссылка на OpenAPI спецификацию
 
 ```
-https://raw.githubusercontent.com/<ваш-username>/<ваш-репозиторий>/main/kinescope-api-openapi.yaml
+https://raw.githubusercontent.com/kinescoper/kinescope_openapi/main/kinescope-api-openapi.yaml
 ```
 
 **Использование:** Добавьте эту ссылку в вашу документацию для прямого доступа к спецификации.
@@ -19,7 +19,7 @@ https://raw.githubusercontent.com/<ваш-username>/<ваш-репозитори
 ## 🌐 Интерактивная документация (Swagger UI)
 
 ```
-https://editor.swagger.io/?url=https://raw.githubusercontent.com/<ваш-username>/<ваш-репозиторий>/main/kinescope-api-openapi.yaml
+https://editor.swagger.io/?url=https://raw.githubusercontent.com/kinescoper/kinescope_openapi/main/kinescope-api-openapi.yaml
 ```
 
 **Использование:** 
@@ -32,7 +32,7 @@ https://editor.swagger.io/?url=https://raw.githubusercontent.com/<ваш-usernam
 ## 📚 Красивая документация (Redoc)
 
 ```
-https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/<ваш-username>/<ваш-репозиторий>/main/kinescope-api-openapi.yaml
+https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/kinescoper/kinescope_openapi/main/kinescope-api-openapi.yaml
 ```
 
 **Использование:**

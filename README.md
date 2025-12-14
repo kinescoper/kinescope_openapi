@@ -6,8 +6,8 @@ OpenAPI 3.0.3 спецификация для Kinescope API, автоматич�
 
 ### Интерактивная документация
 
-- **Swagger UI**: [Открыть в Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/<username>/<repo>/main/kinescope-api-openapi.yaml)
-- **Redoc**: [Открыть в Redoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/<username>/<repo>/main/kinescope-api-openapi.yaml)
+- **Swagger UI**: [Открыть в Swagger Editor](https://editor.swagger.io/?url=https://raw.githubusercontent.com/kinescoper/kinescope_openapi/main/kinescope-api-openapi.yaml)
+- **Redoc**: [Открыть в Redoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/kinescoper/kinescope_openapi/main/kinescope-api-openapi.yaml)
 
 ### Файлы спецификации
 
