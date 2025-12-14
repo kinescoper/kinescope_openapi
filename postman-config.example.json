@@ -1,0 +1,9 @@
+{
+  "postmanApiKey": "YOUR_POSTMAN_API_KEY",
+  "collectionId": "YOUR_COLLECTION_ID",
+  "collectionUid": "YOUR_COLLECTION_UID",
+  "workspaceId": "YOUR_WORKSPACE_ID",
+  "autoSync": true,
+  "syncInterval": "daily"
+}
+

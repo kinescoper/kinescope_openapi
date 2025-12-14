@@ -1,0 +1,76 @@
+name: Sync Postman to OpenAPI
+
+on:
+  # ⚠️ Автоматический запуск отключен
+  # Раскомментируйте schedule для автоматического запуска по расписанию
+  # schedule:
+  #   - cron: '0 9 * * *'
+  
+  # Запуск вручную (всегда доступен)
+  workflow_dispatch:
+  
+  # Запуск при изменении скриптов синхронизации (отключено)
+  # Раскомментируйте для автоматического запуска при изменении скриптов
+  # push:
+  #   paths:
+  #     - 'scripts/sync-from-postman-api.js'
+  #     - 'scripts/postman-to-openapi.js'
+  #     - '.github/workflows/sync-postman.yml'
+
+jobs:
+  sync-and-convert:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Fetch collection from Postman API
+        env:
+          POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
+          POSTMAN_COLLECTION_ID: ${{ secrets.POSTMAN_COLLECTION_ID }}
+        run: |
+          node scripts/sync-from-postman-api.js
+      
+      - name: Convert to OpenAPI
+        run: |
+          node scripts/postman-to-openapi.js
+      
+      - name: Check for changes
+        id: verify-changed-files
+        run: |
+          if [ -n "$(git status --porcelain kinescope-api-openapi.yaml kinescope-api-openapi.json)" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit changes
+        if: steps.verify-changed-files.outputs.changed == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add kinescope-api-openapi.yaml kinescope-api-openapi.json
+          git commit -m "chore: auto-sync OpenAPI from Postman [skip ci]"
+          git push
+      
+      - name: Create summary
+        if: steps.verify-changed-files.outputs.changed == 'true'
+        run: |
+          echo "## ✅ OpenAPI документация обновлена" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Документация автоматически синхронизирована из Postman коллекции." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Измененные файлы:" >> $GITHUB_STEP_SUMMARY
+          echo "- \`kinescope-api-openapi.yaml\`" >> $GITHUB_STEP_SUMMARY
+          echo "- \`kinescope-api-openapi.json\`" >> $GITHUB_STEP_SUMMARY
+

@@ -1,0 +1,27 @@
+# Postman конфигурация и временные файлы
+postman-config.json
+.postman-backups/
+.postman-collection-temp.json
+
+# Node modules
+node_modules/
+
+# Логи
+*.log
+npm-debug.log*
+
+# Временные файлы
+.DS_Store
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Environment variables
+.env
+.env.local
+

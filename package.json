@@ -1,0 +1,25 @@
+{
+  "name": "tetris",
+  "version": "1.0.0",
+  "description": "Tetris game project",
+  "main": "tetris.js",
+  "scripts": {
+    "start": "node tetris.js",
+    "mcp:example": "node example-mcp.js",
+    "mcp:run": "npx -y @mux/mcp@latest --client=cursor --tools=dynamic",
+    "openapi:convert": "node scripts/postman-to-openapi.js",
+    "openapi:sync": "node scripts/sync-from-postman-api.js && node scripts/postman-to-openapi.js",
+    "openapi:sync-api": "node scripts/sync-and-convert.js --from-api",
+    "openapi:publish-gist": "node scripts/publish-to-gist.js",
+    "openapi:serve": "cd docs && python3 -m http.server 8000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mux/mcp": "^12.8.1"
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.1"
+  }
+}
